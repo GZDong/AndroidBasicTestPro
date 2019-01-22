@@ -16,6 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:label="@string/title_activity_second"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="openSecondActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="openSecondActivityWithThis"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
