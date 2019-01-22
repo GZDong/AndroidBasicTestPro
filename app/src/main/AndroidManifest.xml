@@ -19,14 +19,22 @@
         <activity
             android:name=".SecondActivity"
             android:label="@string/title_activity_second"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="openSecondActivity"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="openSecondActivityWithThis"/>
+                <action android:name="openSecondActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="openSecondActivityWithThis" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".NoToolBarActivity"
+            android:label="@string/title_activity_no_tool_bar"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

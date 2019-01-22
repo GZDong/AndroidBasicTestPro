@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TestBasicAndroid</string>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_no_tool_bar">NoToolBarActivity</string>
 </resources>
