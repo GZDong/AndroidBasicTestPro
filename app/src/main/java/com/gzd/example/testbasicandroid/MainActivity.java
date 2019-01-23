@@ -118,6 +118,15 @@ public class MainActivity extends BaseActivity {
                 dialog.show();
             }
         });
+
+
+        Button btnListView = findViewById(R.id.btn_listview);
+        btnListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ListviewActivity.actionStart(MainActivity.this,"go to list view");
+            }
+        });
     }
 
     @Override

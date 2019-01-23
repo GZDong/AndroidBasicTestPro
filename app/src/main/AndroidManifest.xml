@@ -34,7 +34,8 @@
         <activity
             android:name=".NoToolBarActivity"
             android:label="@string/title_activity_no_tool_bar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ListviewActivity"></activity>
     </application>
 
 </manifest>

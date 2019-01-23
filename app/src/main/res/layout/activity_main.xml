@@ -81,4 +81,10 @@
     <com.gzd.example.testbasicandroid.view.MyLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.gzd.example.testbasicandroid.view.MyLayout>
+
+    <Button
+        android:id="@+id/btn_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="listview"/>
 </android.support.v7.widget.LinearLayoutCompat>
