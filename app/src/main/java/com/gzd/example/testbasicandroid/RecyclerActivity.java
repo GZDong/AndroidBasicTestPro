@@ -33,5 +33,9 @@ public class RecyclerActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
+
+        /*当数据发生变化时以及需要列表滑动时
+        adapter.notifyItemInserted(testData.size()-1);
+        recyclerView.scrollToPosition(testData.size()-1);*/
     }
 }
