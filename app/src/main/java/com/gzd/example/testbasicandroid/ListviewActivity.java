@@ -12,7 +12,7 @@ import com.gzd.example.testbasicandroid.tool.ListviewAdapter;
 
 import java.util.ArrayList;
 
-public class ListviewActivity extends AppCompatActivity {
+public class ListviewActivity extends BaseActivity {
 
     public static void actionStart(Context context, String msg){
         Intent intent = new Intent(context,ListviewActivity.class);

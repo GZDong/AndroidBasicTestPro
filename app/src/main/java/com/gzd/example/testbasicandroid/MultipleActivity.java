@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MultipleActivity extends AppCompatActivity {
+public class MultipleActivity extends BaseActivity {
 
     public static void actionStart(Context context, String msg){
         Intent intent = new Intent(context,MultipleActivity.class);

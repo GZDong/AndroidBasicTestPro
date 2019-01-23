@@ -12,7 +12,7 @@ import com.gzd.example.testbasicandroid.tool.RecAdapter;
 
 import java.util.ArrayList;
 
-public class RecyclerActivity extends AppCompatActivity {
+public class RecyclerActivity extends BaseActivity {
 
     public static void actionStart(Context context, String msg){
         Intent intent = new Intent(context,RecyclerActivity.class);

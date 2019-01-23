@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.gzd.example.testbasicandroid.fragment.SecondFragment;
 
-public class Fragment2Activity extends AppCompatActivity {
+public class Fragment2Activity extends BaseActivity {
     public static void actionStart(Context context, String p1,String p2){
         Intent intent = new Intent(context,Fragment2Activity.class);
         intent.putExtra("p1",p1);

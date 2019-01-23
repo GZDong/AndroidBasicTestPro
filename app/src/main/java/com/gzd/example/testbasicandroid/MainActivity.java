@@ -1,8 +1,11 @@
 package com.gzd.example.testbasicandroid;
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -21,6 +24,7 @@ import android.widget.Toast;
 
 public class MainActivity extends BaseActivity {
     public static String TAG = "MainActivity";
+    private BroadcastReceiver mRecevier;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,6 +146,16 @@ public class MainActivity extends BaseActivity {
                 MultipleActivity.actionStart(MainActivity.this,"go to multi view");
             }
         });
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("code broadcast");
+        mRecevier = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Toast.makeText(MainActivity.this,"code msg was got",Toast.LENGTH_LONG).show();
+            }
+        };
+        registerReceiver(mRecevier,filter);
     }
 
     @Override
@@ -201,5 +215,11 @@ public class MainActivity extends BaseActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("RestoreMsg","saveTextIfStopActivityIsRestored");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mRecevier);
     }
 }
