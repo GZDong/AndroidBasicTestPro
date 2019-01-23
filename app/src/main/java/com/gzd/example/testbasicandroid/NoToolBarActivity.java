@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.gzd.example.testbasicandroid.dao.dao.impl.PersonDaoImpl;
+import com.gzd.example.testbasicandroid.pojo.Person;
+import com.gzd.example.testbasicandroid.tool.DBHelper;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -26,9 +32,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.List;
 
 public class NoToolBarActivity extends BaseActivity {
 
+    private PersonDaoImpl manager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +48,9 @@ public class NoToolBarActivity extends BaseActivity {
         if (actionBar != null){
             actionBar.hide();
         }
+        DBHelper helper = new DBHelper(this,getString(R.string.db_name),null,1);
+        SQLiteDatabase database = helper.getWritableDatabase();
+        manager = new PersonDaoImpl(database);
 
         Button btn1 = findViewById(R.id.send_code_intent);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +125,52 @@ public class NoToolBarActivity extends BaseActivity {
                     editor3.putString("content",editXML.getText().toString());
                     editor3.apply();
                 }
+            }
+        });
+        Button btnAdd = findViewById(R.id.btn_add);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Person person = new Person();
+                person.setName("gzd");
+                person.setAge(25);
+                manager.addPerson(person);
+            }
+        });
+
+        Button btnDelete = findViewById(R.id.btn_delete);
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Person person = new Person();
+                person.setName("gzd");
+                person.setAge(25);
+                manager.deletePerson(person);
+            }
+        });
+        Button btnUpdate = findViewById(R.id.btn_update);
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Person person = new Person();
+                person.setName("gzd");
+                person.setAge(30);
+                manager.updatePerson(person);
+            }
+        });
+        Button btnGet = findViewById(R.id.btn_get);
+        final TextView textView = findViewById(R.id.text_person);
+        btnGet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<Person> personList = manager.findAllPersons();
+                StringBuilder str = new StringBuilder();
+                for (Person person : personList){
+                    str.append(person.getName());
+                    str.append(" - ");
+                    str.append(person.getAge());
+                }
+                textView.setText(str.toString());
             }
         });
     }

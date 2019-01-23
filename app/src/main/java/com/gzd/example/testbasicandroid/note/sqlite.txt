@@ -1,0 +1,5 @@
+1.使用系统自带的db工具类，那就是SQLiteOpenHelper，这是一个抽象类，我们需要具体去实现它的onCreate和onUpdate；在调用创建helper类时，
+  需要指定上下文，数据库名称，游标，版本，然后使用getReadableDatabase或getWritableDatabase获取SQLDatabase对象，该对象用于操作数据库，
+  假如该数据库不存在，该方面才会触发onCreate，而onUpdate方法在版本号不同时才触发
+2.除了查询使用一些列query方面，其他的操作大可使用execSQL，不过参数使用new String[]{}
+3.adb shell 查看db，需要先配置platform-tools到path环境变量中；需要先cd到包名目录下；使用sqlite3等命令进行操作；sql语句记得加分号结尾
