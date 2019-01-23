@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <dbname value="demo" />
+    <dbname value="LitepalDatabase" />
 
     <!--
     	Define the version of your database. Each time you want
@@ -24,6 +24,7 @@
     	</list>
     -->
     <list>
+        <mapping class="com.gzd.example.testbasicandroid.pojo.Person"/>
     </list>
 
     <!--
