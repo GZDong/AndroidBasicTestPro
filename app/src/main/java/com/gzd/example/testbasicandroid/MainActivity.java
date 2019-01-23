@@ -127,6 +127,14 @@ public class MainActivity extends BaseActivity {
                 ListviewActivity.actionStart(MainActivity.this,"go to list view");
             }
         });
+
+        Button btnRecView = findViewById(R.id.btn_recycler_view);
+        btnRecView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecyclerActivity.actionStart(MainActivity.this,"go to list view");
+            }
+        });
     }
 
     @Override
