@@ -135,6 +135,13 @@ public class MainActivity extends BaseActivity {
                 RecyclerActivity.actionStart(MainActivity.this,"go to list view");
             }
         });
+        Button btnMulti = findViewById(R.id.btn_multi);
+        btnMulti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MultipleActivity.actionStart(MainActivity.this,"go to multi view");
+            }
+        });
     }
 
     @Override

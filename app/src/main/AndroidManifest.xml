@@ -36,7 +36,9 @@
             android:label="@string/title_activity_no_tool_bar"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ListviewActivity" />
-        <activity android:name=".RecyclerActivity"></activity>
+        <activity android:name=".RecyclerActivity" />
+        <activity android:name=".MultipleActivity" />
+        <activity android:name=".Fragment2Activity"></activity>
     </application>
 
 </manifest>
