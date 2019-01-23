@@ -25,4 +25,27 @@
         android:layout_height="wrap_content"
         android:text="send_local_intent"/>
 
+    <EditText
+        android:id="@+id/edit_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="input file content"/>
+
+    <Button
+        android:id="@+id/btn_save_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="save file"/>
+
+    <EditText
+        android:id="@+id/edit_xml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="input xml content"/>
+    <Button
+        android:id="@+id/btn_save_shared_preference_xml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="save xml"/>
+
 </LinearLayout>
