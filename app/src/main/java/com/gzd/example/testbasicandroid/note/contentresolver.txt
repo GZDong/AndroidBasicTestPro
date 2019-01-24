@@ -1,0 +1,12 @@
+1.provider居然，居然比application的启动还要早，所以说，application里的一些初始化数据不能服务于provider
+2.内容提供器的主要key word就是Uri，定义资源类型、拥有者和位置
+3.对于创建一个provider，首先就是要定义自己这个provider的名称，也就是它的拥有者叫什么；
+  再者定义provider所拥有的资源的名称以及资源的选取根据，也就是id；
+  定好了自己的名称（其实也可以有多个名称），然后自己有的资源，资源的选取方式，那么就算定义好了一个Uri啦，然后就可以通过UriMatcher来
+  给每个Uri指定一个代号，创建自己这个provider所可以支持的Uri；
+  这里使用静态代码块来指定，它的作用是保证程序启动的时候就已经做好匹配
+  provider是在manifest里注册的，所以它不需要手动创建对象或激活，当收到resolver的CURD操作时（主要是通过系统识别authority来找到的），就会触发
+4.provider和resolver，后者必须知道前者的authority，以及它所有的资源，以及资源的一些选取方式
+5.provider还会返回一个MIME的数据，它主要包括2点内容，第一个是告诉resolver它游标的类型什么，另一个是告诉resolver它Uri的内容；
+  MIME = MIME协议.Cursor类型/MIME协议.authority.具体资源（path）;MIME协议中，content对应的是vnd；
+  Cursor 类型有目录和具体子项2种，android.cursor.dir和android.cursor.item；

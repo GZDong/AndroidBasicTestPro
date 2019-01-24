@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gzd.example.testbasicandroid">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".MyApplication"
@@ -42,31 +42,40 @@
         <activity android:name=".ListviewActivity" />
         <activity android:name=".RecyclerActivity" />
         <activity android:name=".MultipleActivity" />
-        <activity android:name=".Fragment2Activity"></activity>
+        <activity android:name=".Fragment2Activity" />
 
-        <receiver android:name=".tool.ManifestReceiver"
+        <receiver
+            android:name=".tool.ManifestReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="manifest broadcast"/>
+                <action android:name="manifest broadcast" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".tool.OrderReceiver1"
+        <receiver
+            android:name=".tool.OrderReceiver1"
             android:enabled="true"
             android:exported="true">
             <intent-filter android:priority="2">
-                <action android:name="order broadcast"/>
+                <action android:name="order broadcast" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".tool.OrderReceiver2"
+        <receiver
+            android:name=".tool.OrderReceiver2"
             android:enabled="true"
             android:exported="true">
             <intent-filter android:priority="1">
-                <action android:name="order broadcast"/>
+                <action android:name="order broadcast" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".OtherApplicationDemo.MainActivity" />
+
+        <provider
+            android:name=".OtherApplicationDemo.MyContentProvider"
+            android:authorities="otheractivityprovider"
+            android:enabled="true"
+            android:exported="true"></provider>
     </application>
 
 </manifest>

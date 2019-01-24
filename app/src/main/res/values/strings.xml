@@ -7,4 +7,8 @@
     <string name="db_create_sql">create table Person(
         name text primary key,
         age integer)</string>
+    <string name="db_name_other">OtherPersonDatabase.db</string>
+    <string name="db_create_sq2">create table OtherPerson(
+        name text primary key,
+        age integer)</string>
 </resources>

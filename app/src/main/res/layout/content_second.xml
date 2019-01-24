@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".SecondActivity"
-    tools:showIn="@layout/activity_second">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/text_msg_from_act1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text=" "/>
-</android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_go_to_other_application"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_go_to_other_application"/>
+
+    <Button
+        android:id="@+id/btn_add_person_to_other_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_add_person_to_other_app"/>
+    <Button
+        android:id="@+id/btn_delete_from_other_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_delete_from_other_app"/>
+    <TextView
+        android:id="@+id/text_other_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/btn_get_from_other_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_get_from_other_app"/>
+    <Button
+        android:id="@+id/btn_update_other_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_update_other_app"/>
+</LinearLayout>

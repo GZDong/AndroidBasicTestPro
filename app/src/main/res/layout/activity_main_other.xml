@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OtherApplicationDemo.MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_add_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_add_other"/>
+
+    <Button
+        android:id="@+id/btn_delete_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_delete_other"/>
+
+    <TextView
+        android:id="@+id/text_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/btn_get_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_get_other"/>
+
+    <Button
+        android:id="@+id/btn_update_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_update_other"/>
+</LinearLayout>
