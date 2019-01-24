@@ -1,14 +1,19 @@
 package com.gzd.example.testbasicandroid;
 
+import android.Manifest;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +23,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gzd.example.testbasicandroid.dao.dao.impl.PersonDaoImpl;
 import com.gzd.example.testbasicandroid.pojo.Person;
@@ -37,6 +43,7 @@ import java.util.List;
 public class NoToolBarActivity extends BaseActivity {
 
     private PersonDaoImpl manager;
+    public final static int REQUEST_PHONE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -173,6 +180,32 @@ public class NoToolBarActivity extends BaseActivity {
                 textView.setText(str.toString());
             }
         });
+
+        Button btnRuntimePermission = findViewById(R.id.btn_request_runtime_permission);
+        btnRuntimePermission.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(NoToolBarActivity.this,Manifest.permission.CALL_PHONE)!=PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(NoToolBarActivity.this,new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE);
+                }else {
+                    Toast.makeText(NoToolBarActivity.this,"you has the permission",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PHONE:
+                if (grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(NoToolBarActivity.this,"has been granted",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(NoToolBarActivity.this,"couldn't",Toast.LENGTH_LONG).show();
+                }
+            break;
+            default:
+        }
     }
 
     public void save(String content){
