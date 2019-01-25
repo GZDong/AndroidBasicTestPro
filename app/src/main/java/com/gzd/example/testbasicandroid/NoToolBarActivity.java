@@ -185,8 +185,8 @@ public class NoToolBarActivity extends BaseActivity {
         btnRuntimePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(NoToolBarActivity.this,Manifest.permission.CALL_PHONE)!=PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions(NoToolBarActivity.this,new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE);
+                if (ContextCompat.checkSelfPermission(NoToolBarActivity.this,Manifest.permission.VIBRATE)!=PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(NoToolBarActivity.this,new String[]{Manifest.permission.VIBRATE},REQUEST_PHONE);
                 }else {
                     Toast.makeText(NoToolBarActivity.this,"you has the permission",Toast.LENGTH_LONG).show();
                 }

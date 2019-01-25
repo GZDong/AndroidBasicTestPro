@@ -1,6 +1,7 @@
 package com.gzd.example.testbasicandroid.OtherApplicationDemo;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -70,6 +71,16 @@ public class MainActivity extends AppCompatActivity {
                 ContentValues values = new ContentValues();
                 values.put("age",152);
                 database.update("OtherPerson",values,"name = ?",new String[]{"gzd_other"});
+            }
+        });
+
+        Button btnSendBroadcast = findViewById(R.id.btn_send_broadcast_to_main);
+        btnSendBroadcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("goToMainUI");
+                intent.putExtra("content","number is : "+Math.random());
+                sendBroadcast(intent);
             }
         });
     }

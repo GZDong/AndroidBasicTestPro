@@ -35,4 +35,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="btn_update_other"/>
+
+    <Button
+        android:id="@+id/btn_send_broadcast_to_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_send_broadcast_to_main"/>
 </LinearLayout>
