@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
@@ -14,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,7 +79,20 @@
             android:name=".OtherApplicationDemo.MyContentProvider"
             android:authorities="otheractivityprovider"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true" />
+
+        <activity android:name=".OtherApplicationDemo.PictureActivity" />
+        <activity android:name=".OtherApplicationDemo.VideoActivity" />
+        <activity android:name=".OtherApplicationDemo.PlayerActivity"></activity>
+
+        <provider
+            android:authorities="fake.path.tag"
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>

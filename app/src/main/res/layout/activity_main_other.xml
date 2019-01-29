@@ -41,4 +41,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="btn_send_broadcast_to_main"/>
+
+    <Button
+        android:id="@+id/btn_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_picture"/>
+    <Button
+        android:id="@+id/btn_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_video"/>
+    <Button
+        android:id="@+id/btn_media_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_media_player"/>
+
 </LinearLayout>

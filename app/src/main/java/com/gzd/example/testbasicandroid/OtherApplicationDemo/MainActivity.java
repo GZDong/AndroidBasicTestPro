@@ -83,5 +83,27 @@ public class MainActivity extends AppCompatActivity {
                 sendBroadcast(intent);
             }
         });
+
+        Button btnPic = findViewById(R.id.btn_picture);
+        Button btnVideo = findViewById(R.id.btn_video);
+        Button btnPlayer = findViewById(R.id.btn_media_player);
+        btnPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,PictureActivity.class));
+            }
+        });
+        btnVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,VideoActivity.class));
+            }
+        });
+        btnPlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,PlayerActivity.class));
+            }
+        });
     }
 }
