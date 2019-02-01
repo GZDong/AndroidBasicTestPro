@@ -1,0 +1,7 @@
+1.从api19开始，选取图片的话，图片是从provider里取的，而不能直接从uri里获得真实路径，它们经过封装
+2.因为从19开始，资源可能是doc，file或content类型的，所以根据不同的类型，提取方式不同；
+  file类型的和以前的一样，可以直接获取path；
+  content类型的就是普通的provider封装，所以通过resolver和uri正常提取就可以了；
+  doc类型的需要去使用指定的uri提取，里面有指定的authority，selection需要从uri中提取出来的doc id；
+  doc也分为本地doc和下载的doc，分别对应不同的uri；
+3.@TargetApi（）可以限定方法只在特别的版本被调用，避免了编译不通过
