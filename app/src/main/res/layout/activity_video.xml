@@ -6,4 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".OtherApplicationDemo.VideoActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="VideoView \n setVideoPath  \n start \n pause \n resume \n seekTo \n isPlaying \n getDuration \n suspend"/>
 </android.support.constraint.ConstraintLayout>

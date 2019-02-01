@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".OtherApplicationDemo.PlayerActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="MediaPlayer \n setDataSource \n prepare \n start \n pause \n reset \n seekTo \n stop \n release \n isPlaying \n getDuration"/>
+
 </android.support.constraint.ConstraintLayout>
