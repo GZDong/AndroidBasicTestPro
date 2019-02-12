@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 /**
  * Created by gzd on 2019/2/12 0012
  */
-public class DownloadTack extends AsyncTask<Void,Integer,String> {
+public class DownloadTack extends AsyncTask<Void,Integer,String> {   //第一个参数用于execute
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -13,6 +13,7 @@ public class DownloadTack extends AsyncTask<Void,Integer,String> {
 
     @Override
     protected String doInBackground(Void... voids) {
+        //publishProgress 去onProgressUpdate，return去onPostExecute
         return null;
     }
 

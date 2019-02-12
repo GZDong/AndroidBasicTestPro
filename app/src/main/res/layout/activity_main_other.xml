@@ -75,4 +75,16 @@
         android:layout_height="wrap_content"
         android:text="btn_send_msg_with_handler"/>
 
+    <Button
+        android:id="@+id/btn_start_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_start_service"/>
+
+    <Button
+        android:id="@+id/btn_stop_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_stop_service"/>
+
 </LinearLayout>

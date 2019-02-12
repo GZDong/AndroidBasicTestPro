@@ -1,25 +1,30 @@
 package com.gzd.example.testbasicandroid.OtherApplicationDemo;
 
+import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.gzd.example.testbasicandroid.MyApplication;
 import com.gzd.example.testbasicandroid.R;
+import com.gzd.example.testbasicandroid.service.MyService;
 import com.gzd.example.testbasicandroid.tool.MyThread;
 
 public class MainActivity extends AppCompatActivity {
-
     SQLiteDatabase database ;
     TextView textMsg;
+    Intent intent;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -29,6 +34,20 @@ public class MainActivity extends AppCompatActivity {
                 break;
                 default:
             }
+        }
+    };
+    private MyService.MyBinder myBinder;
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            myBinder = (MyService.MyBinder) service;
+            myBinder.getProgress();
+            myBinder.startDownload();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
         }
     };
     @Override
@@ -151,6 +170,30 @@ public class MainActivity extends AppCompatActivity {
                         handler.sendMessage(message);
                     }
                 }).start();
+            }
+        });
+        intent = new Intent(MainActivity.this,MyService.class);
+        intent.putExtra("data", "from activity");
+        Button btnStartService = findViewById(R.id.btn_start_service);
+        btnStartService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startService(intent);
+                bindService(intent,connection,BIND_AUTO_CREATE);
+            }
+        });
+
+        Button btnStopService = findViewById(R.id.btn_stop_service);
+        btnStopService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    unbindService(connection);
+//                    stopService(intent);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Log.e("test", "onClick: " + e.getMessage() );
+                }
             }
         });
     }
