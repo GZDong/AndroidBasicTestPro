@@ -28,9 +28,11 @@ public class MyApplication extends Application {
     private BroadcastReceiver receiver;
     private IntentFilter filter;
     private NotificationManager notificationManager;
+    public static Context mContext;
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
         LitePal.initialize(this);
         OtherDBHelper helper = new OtherDBHelper(this,getString(R.string.db_name_other),null,1);
         database = helper.getWritableDatabase();
@@ -69,6 +71,10 @@ public class MyApplication extends Application {
             }
         };
         registerReceiver(receiver, filter);
+    }
+
+    public static Context getmContext() {
+        return mContext;
     }
 
     public static SQLiteDatabase getDatabase() {

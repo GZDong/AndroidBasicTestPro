@@ -1,0 +1,3 @@
+1.生产apk，需要一份或多份keystore文件，也就是一份保存各种产品信息（即签名）的文件，可以通过AS生成，也可以通过Gradle配置生成，
+  不过在使用Gradle时，最好使用配置文件指定参数，有了keystore文件之后就可以生成带有签名的APK了
+2.如果需要对不同的平台做不同的apk，那就需要在app/build里添加productFlavors，并对子项重写applicationId的值
