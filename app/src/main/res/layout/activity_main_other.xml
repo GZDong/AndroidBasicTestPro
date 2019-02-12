@@ -58,4 +58,21 @@
         android:layout_height="wrap_content"
         android:text="btn_media_player"/>
 
+    <TextView
+        android:id="@+id/text_thread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/btn_send_msg_with_callback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_send_msg_with_callback"/>
+
+    <Button
+        android:id="@+id/btn_send_msg_with_handler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn_send_msg_with_handler"/>
+
 </LinearLayout>

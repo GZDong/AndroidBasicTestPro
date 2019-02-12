@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,10 +14,23 @@ import android.widget.TextView;
 
 import com.gzd.example.testbasicandroid.MyApplication;
 import com.gzd.example.testbasicandroid.R;
+import com.gzd.example.testbasicandroid.tool.MyThread;
 
 public class MainActivity extends AppCompatActivity {
 
     SQLiteDatabase database ;
+    TextView textMsg;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    textMsg.setText("msg from handler");
+                break;
+                default:
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +118,39 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,PlayerActivity.class));
+            }
+        });
+
+        textMsg = findViewById(R.id.text_thread);
+
+        Button btnSendCallback = findViewById(R.id.btn_send_msg_with_callback);
+        btnSendCallback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyThread myThread = new MyThread();
+                myThread.setCallBack(new MyThread.CallBack() {
+                    @Override
+                    public void handleMsg(String string) {
+                        textMsg.setText(string);
+                    }
+                });
+                myThread.start();
+            }
+        });
+
+
+        Button btnSendHandler = findViewById(R.id.btn_send_msg_with_handler);
+        btnSendHandler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Message message = new Message();
+                        message.what = 1;
+                        handler.sendMessage(message);
+                    }
+                }).start();
             }
         });
     }
